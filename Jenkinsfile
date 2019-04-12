@@ -27,11 +27,11 @@ pipeline {
             }
         }
         stage('mail')  {
-            steps{
-                [$class: 'Mailer',
+            steps {
+                $class: 'Mailer',
                 notifyEveryUnstableBuild: true,
                 recipients: "sphoorthi@anakinmedia.com",
-                sendToIndividuals: true]
+                sendToIndividuals: true
             }
         }   
     }
