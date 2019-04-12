@@ -26,13 +26,14 @@ pipeline {
                 sh './jenkins/scripts/kill.sh' 
             }
         }
+        stage('mail')
         post {
         always {
           step([$class: 'Mailer',
             notifyEveryUnstableBuild: true,
             recipients: "sphoorthi@anakinmedia.com",
             sendToIndividuals: true])
-       }
-     }
+            }
+        }   
     }
 }
